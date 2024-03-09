@@ -6,7 +6,7 @@ rule all:
 
 rule multiqc:
     input:
-        expand("{sample}", sample=config["SAMPLES"])
+        expand("{sample}_fastqc.html", sample=config["SAMPLES"])
     output:
         "multiqc_report.html"
     wrapper:
@@ -14,7 +14,7 @@ rule multiqc:
 
 rule fastqc:
     input:
-        "{sample}.fastqsanger"
+        "data/{sample}.fastqsanger"
     output:
         "{sample}_fastqc.html", "{sample}_fastqc.zip"
     params:

@@ -1,7 +1,5 @@
-genomeTest: \data\
-ext: .fastqsanger
-forward_sample: \data\T1A_forward.fastqsanger
-backward_sample: \data\T1A_reverse.fastqsanger
+forward_sample: /data/T1A_forward.fastqsanger
+backward_sample: /data/T1A_reverse.fastqsanger
 SAMPLES:
-  - data\T1A_forward.fastqsanger
-  - data\T1A_reverse.fastqsanger
+  - T1A_forward
+  - T1A_reverse
