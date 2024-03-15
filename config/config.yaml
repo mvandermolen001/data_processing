@@ -1,5 +1,5 @@
-forward_sample: /data/T1A_forward.fastqsanger
-backward_sample: /data/T1A_reverse.fastqsanger
+forward_sample: T1A_forward
+reverse_sample: T1A_reverse
 SAMPLES:
   - T1A_forward
   - T1A_reverse
