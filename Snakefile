@@ -1,22 +1,25 @@
 configfile: "config/config.yaml"
 
 rule all:
+    """Rule that defines the outputs you want and the wildcards used in the creation of said outputs"""
     input:
         "result/multiqc/multiqc_report.html",
-        expand("result/trimmed/{sample}.fastq", sample=config["forward_sample"]),
-        expand("result/trimmed/{sample}.fastq", sample=config["reverse_sample"]),
-        # expand("result/sort/{sample}.fastq.gz", sample=config["forward_sample"]),
-        # expand("result/sort/{sample}.fastq.gz", sample=config["reverse_sample"]),
+        expand("result/trimmed/{sample}_forward.fastq", sample=config["SAMPLES"]),
+        expand("result/trimmed/{sample}_reverse.fastq", sample=config["SAMPLES"]),
+        expand("result/trimmed/{sample}.qc.txt", sample=config["SAMPLES"]),
 
 rule multiqc:
+    """Rule that creates a multiqc file of the fastqc files"""
     input:
-        expand("result/fastqc/{sample}_fastqc.html", sample=config["SAMPLES"])
+        expand("result/fastqc/{sample}_forward_fastqc.html", sample=config["SAMPLES"]),
+        expand("result/fastqc/{sample}_reverse_fastqc.html", sample=config["SAMPLES"])
     output:
         "result/multiqc/multiqc_report.html"
     wrapper:
         "v3.4.1/bio/multiqc"
 
 rule cutadapt:
+    """Rule that trims the fastq files"""
     input:
         ["data/{sample}_forward.fastq", "data/{sample}_reverse.fastq"],
     output:
@@ -30,16 +33,29 @@ rule cutadapt:
     wrapper:
         "v3.5.0/bio/cutadapt/pe"
 
-rule fastqc:
+rule fastqc_forward:
+    """Rule that creates the fastqc files for the forward samples"""
     input:
-        "data/{sample}.fastq"
+        "data/{sample}_forward.fastq",
     output:
-        html="result/fastqc/{sample}_fastqc.html",
-        zip="result/fastqc/{sample}_fastqc.zip"
+        html="result/fastqc/{sample}_forward_fastqc.html",
+        zip="result/fastqc/{sample}_forward_fastqc.zip"
     params:
         extra = "--quiet"
     wrapper:
         "v3.4.1/bio/fastqc"
+
+rule fastqc_reverse:
+    """Rule that creates the fastqc files for the reverse samples"""
+    input: "data/{sample}_reverse.fastq",
+    output:
+        html="result/fastqc/{sample}_reverse_fastqc.html",
+        zip="result/fastqc/{sample}_reverse_fastqc.zip"
+    params:
+        extra="--quiet"
+    wrapper:
+        "v3.4.1/bio/fastqc"
+
 
 ## TODO: Wonder if sortmerna is truly needed as the next step uses the cutadapt results
 

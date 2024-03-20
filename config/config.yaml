@@ -1,5 +1,4 @@
 forward_sample: T1A_forward
 reverse_sample: T1A_reverse
 SAMPLES:
-  - T1A_forward
-  - T1A_reverse
+  - T1A
