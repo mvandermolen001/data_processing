@@ -1,7 +1,6 @@
 channels:
-  - bioconda
   - conda-forge
+  - bioconda
 dependencies:
-  - samtools=1.9
-  - bcftools=1.9
-  - sortmerna
+  - bowtie2
+  - metaphlan2

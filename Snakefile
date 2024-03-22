@@ -5,8 +5,10 @@ rule all:
     input:
         "result/multiqc/multiqc_report.html",
         expand("result/trimmed/{sample}_forward.fastq", sample=config["SAMPLES"]),
-        expand("result/trimmed/{sample}_reverse.fastq", sample=config["SAMPLES"]),
-        expand("result/trimmed/{sample}.qc.txt", sample=config["SAMPLES"]),
+        "result/metaphlan/metagenome.bowtie2.bz2",
+        # expand("result/sort/{sample}_aligned_1.fastq.gz", sample=config["SAMPLES"]),
+        # expand("result/sort/{sample}_aligned_2.fastq.gz", sample=config["SAMPLES"]),
+        # expand("sortmerna_pe_stats_{sample}.log", sample=config["SAMPLES"]),
 
 rule multiqc:
     """Rule that creates a multiqc file of the fastqc files"""
@@ -56,13 +58,12 @@ rule fastqc_reverse:
     wrapper:
         "v3.4.1/bio/fastqc"
 
-
-## TODO: Wonder if sortmerna is truly needed as the next step uses the cutadapt results
+## TODO: Check how those databases work with this tool and this wrapper
 
 # rule sortmerna_pe:
 #     input:
-#         ref=["rfam-5s-database-id98.fa", "silva-arc-23s-id98", "silva-euk-28s-id98", "silva-bac-23s-id98",
-#              "silva-euk-18s-id95", "silva-bac-16s-id90", "rfam-5.8s-database-id98", "silva-arc-16s-id95"],
+#         ref=["rfam-5s-database-id98.fasta", "silva-arc-23s-id98.fasta", "silva-euk-28s-id98.fasta", "silva-bac-23s-id98.fasta",
+#              "silva-euk-18s-id95.fasta", "silva-bac-16s-id90.fasta", "rfam-5.8s-database-id98.fasta", "silva-arc-16s-id95.fasta"],
 #         reads=["result/trimmed/{sample}_forward.fastq", "result/trimmed/{sample}_reverse.fastq"],
 #     output:
 #         aligned=["result/sort/{sample}_aligned_1.fastq.gz", "result/sort/{sample}_aligned_2.fastq.gz"],
@@ -75,4 +76,18 @@ rule fastqc_reverse:
 #         "logs/sortmerna/reads_pe_{sample}.log",
 #     wrapper:
 #         "v3.5.0/bio/sortmerna"
+
+rule metaphlan:
+    input:
+        fastq_forward = expand("result/trimmed/{sample}_forward.fastq", sample=config["SAMPLES"]),
+        fastq_reverse = expand("result/trimmed/{sample}_reverse.fastq", sample=config["SAMPLES"])
+    output:
+        "result/metaphlan/metagenome.bowtie2.bz2",
+        "profiled_metagenome.txt"
+    conda:
+        "config/trimming.yaml",
+    shell:
+        """
+            metaphlan2.py {input.fastq_forward}, {input.fastq_reverse} --bowtie2out result/metaphlan/metagenome.bowtie2.bz2 --input_type fastq > profiled_metagenome.txt
+        """
 
