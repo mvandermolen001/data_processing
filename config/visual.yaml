@@ -2,5 +2,6 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
-  - bowtie2
   - krona
+  - export2graphlan
+  - graphlan

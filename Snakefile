@@ -1,5 +1,4 @@
 configfile: "config/config.yaml"
-report: "report/workflow.rst"
 
 rule all:
     """Rule that defines the outputs you want and the wildcards used in the creation of said outputs"""
@@ -10,7 +9,8 @@ rule all:
         expand("result/metaphlan/{sample}_metagenome.bowtie2.bz2", sample=config["SAMPLES"]),
         expand("result/metaphlan/{sample}_profiled_metagenome.txt", sample=config["SAMPLES"]),
         expand("result/metaphlan/{sample}_profiled_meta_to_krona.txt", sample=config["SAMPLES"]),
-        expand("result/krona/{sample}_piechart.html", sample=config["SAMPLES"])
+        expand("result/krona/{sample}_piechart.html", sample=config["SAMPLES"]),
+        expand("result/graphlan/{sample}_visual_tree.pdf", sample=config["SAMPLES"])
 
 include: "workflow/preprocess.smk"
 include: "workflow/alignment.smk"

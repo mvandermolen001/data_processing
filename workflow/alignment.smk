@@ -10,11 +10,9 @@ rule metaphlan:
         "mpa"
     threads:
         20
-    log:
-        "/logs/metaphlan/{sample}_metaphlan.txt"
     shell:
         """
-        metaphlan {input.fastq_forward},{input.fastq_reverse} --bowtie2out {output.align} --input_type fastq -o {output.profile} --bowtie2db {config[path_to_database]} 2> {log}
+        metaphlan {input.fastq_forward},{input.fastq_reverse} --bowtie2out {output.align} --input_type fastq -o {output.profile} --bowtie2db {config[path_to_database]}
         """
 
 rule metaphlan2krona:
@@ -23,11 +21,9 @@ rule metaphlan2krona:
         "result/metaphlan/{sample}_profiled_metagenome.txt"
     output:
         "result/metaphlan/{sample}_profiled_meta_to_krona.txt"
-    log:
-        "/logs/metaphlan/{sample}_metaphlan_krona.txt"
     threads:
         20
     conda:
         "mpa"
     shell:
-        "metaphlan2krona.py -p {input} -k {output} 2> {log}"
+        "metaphlan2krona.py -p {input} -k {output}"
