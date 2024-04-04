@@ -1,4 +1,3 @@
-forward_sample: T1A_forward
-reverse_sample: T1A_reverse
+path_to_database: ""
 SAMPLES:
   - T1A
