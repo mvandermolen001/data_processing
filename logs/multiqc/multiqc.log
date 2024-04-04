@@ -1,0 +1,9 @@
+
+  /// MultiQC 🔍 | v1.21
+
+|           multiqc | Search path : /homes/mvandermolen/thema_11/data_processing_final/result/fastqc
+|         searching | ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 4/4  
+|            fastqc | Found 2 reports
+|           multiqc | Report      : result/multiqc/multiqc_report.html
+|           multiqc | Data        : None
+|           multiqc | MultiQC complete

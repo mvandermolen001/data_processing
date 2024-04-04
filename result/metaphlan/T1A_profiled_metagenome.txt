@@ -1,0 +1,17 @@
+#mpa_vJun23_CHOCOPhlAnSGB_202307
+#/homes/mvandermolen/miniconda3/envs/mpa/bin/metaphlan result/trimmed/T1A_forward.fastq,result/trimmed/T1A_reverse.fastq --bowtie2out result/metaphlan/T1A_metagenome.bowtie2.bz2 --input_type fastq -o result/metaphlan/T1A_profiled_metagenome.txt --bowtie2db /students/2023-2024/Thema07/MetaPhlanDatabases/metaphlan_databases/
+#465754 reads processed
+#SampleID	Metaphlan_Analysis
+#clade_name	NCBI_tax_id	relative_abundance	additional_species
+k__Bacteria	2	100.0	
+k__Bacteria|p__Firmicutes	2|1239	71.87781	
+k__Bacteria|p__Coprothermobacterota	2|2138240	28.12219	
+k__Bacteria|p__Coprothermobacterota|c__Coprothermobacteria	2|2138240|2138243	28.12219	
+k__Bacteria|p__Coprothermobacterota|c__Coprothermobacteria|o__Coprothermobacterales	2|2138240|2138243|2138246	28.12219	
+k__Bacteria|p__Coprothermobacterota|c__Coprothermobacteria|o__Coprothermobacterales|f__Coprothermobacteraceae	2|2138240|2138243|2138246|2138247	28.12219	
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Eubacteriales|f__Oscillospiraceae|g__Acetivibrio	2|1239|186801|186802|216572|35829	71.87781	
+k__Bacteria|p__Coprothermobacterota|c__Coprothermobacteria|o__Coprothermobacterales|f__Coprothermobacteraceae|g__Coprothermobacter	2|2138240|2138243|2138246|2138247|68335	28.12219	
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Eubacteriales|f__Oscillospiraceae|g__Acetivibrio|s__Acetivibrio_thermocellus	2|1239|186801|186802|216572|35829|1515	71.87781	
+k__Bacteria|p__Coprothermobacterota|c__Coprothermobacteria|o__Coprothermobacterales|f__Coprothermobacteraceae|g__Coprothermobacter|s__Coprothermobacter_proteolyticus	2|2138240|2138243|2138246|2138247|68335|35786	28.12219	
+k__Bacteria|p__Firmicutes|c__Clostridia|o__Eubacteriales|f__Oscillospiraceae|g__Acetivibrio|s__Acetivibrio_thermocellus|t__SGB8476	2|1239|186801|186802|216572|35829|1515|	71.87781	
+k__Bacteria|p__Coprothermobacterota|c__Coprothermobacteria|o__Coprothermobacterales|f__Coprothermobacteraceae|g__Coprothermobacter|s__Coprothermobacter_proteolyticus|t__SGB8555	2|2138240|2138243|2138246|2138247|68335|35786|	28.12219	

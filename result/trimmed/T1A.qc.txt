@@ -1,0 +1,22 @@
+This is cutadapt 4.6 with Python 3.10.14
+Command line parameters: --cores 1 -m 150 -q 20 -o result/trimmed/T1A_forward.fastq -p result/trimmed/T1A_reverse.fastq data/T1A_forward.fastq data/T1A_reverse.fastq
+Processing paired-end reads on 1 core ...
+Finished in 9.261 s (35.543 µs/read; 1.69 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:            260,554
+
+== Read fate breakdown ==
+Pairs that were too short:              27,677 (10.6%)
+Pairs written (passing filters):       232,877 (89.4%)
+
+Total basepairs processed:    78,687,308 bp
+  Read 1:    39,343,654 bp
+  Read 2:    39,343,654 bp
+Quality-trimmed:                 773,307 bp (1.0%)
+  Read 1:       203,654 bp
+  Read 2:       569,653 bp
+Total written (filtered):     70,286,647 bp (89.3%)
+  Read 1:    35,154,316 bp
+  Read 2:    35,132,331 bp
