@@ -3,4 +3,4 @@ channels:
   - bioconda
 dependencies:
   - bowtie2
-  - metaphlan2
+  - krona
