@@ -9,7 +9,7 @@ rule metaphlan:
     conda:
         "mpa"
     threads:
-        400
+        20
     log:
         "/logs/metaphlan/{sample}_metaphlan.txt"
     shell:
@@ -25,6 +25,8 @@ rule metaphlan2krona:
         "result/metaphlan/{sample}_profiled_meta_to_krona.txt"
     log:
         "/logs/metaphlan/{sample}_metaphlan_krona.txt"
+    threads:
+        20
     conda:
         "mpa"
     shell:
