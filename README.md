@@ -39,7 +39,7 @@ The file follows the following structure:
 ```
 The results of each tool gets put into its own designated directory, along with a log for each tool.
 What will be the main interest here is the data map, where you put the data you want to process inside. In the config directory
-you'll find the main config.yaml file where you put in your own configurations, this is explained further in the [usage](#-Usage) section.
+you'll find the main config.yaml file where you put in your own configurations, this is explained further in the usage section.
 
 ## Requirements
 Before you run this pipeline, make sure you have the following installed as conda environments.
