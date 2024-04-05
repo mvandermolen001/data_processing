@@ -6,9 +6,6 @@ rule all:
         "result/multiqc/multiqc_report.html",
         expand("result/trimmed/{sample}_forward.fastq", sample=config["SAMPLES"]),
         expand("result/trimmed/{sample}_reverse.fastq", sample=config["SAMPLES"]),
-        expand("result/metaphlan/{sample}_metagenome.bowtie2.bz2", sample=config["SAMPLES"]),
-        expand("result/metaphlan/{sample}_profiled_metagenome.txt", sample=config["SAMPLES"]),
-        expand("result/metaphlan/{sample}_profiled_meta_to_krona.txt", sample=config["SAMPLES"]),
         expand("result/krona/{sample}_piechart.html", sample=config["SAMPLES"]),
         expand("result/graphlan/{sample}_visual_tree.pdf", sample=config["SAMPLES"])
 
