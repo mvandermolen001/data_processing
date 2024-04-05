@@ -7,8 +7,16 @@ trimming, quality control, alignment and counting off, and visualising paired en
 
 The sequencing of microbiomes can often provide a wealth of knowledge on how such a community is build up.
 This wealth of knowledge needs to be processed in a clear, reproducible, but still efficient way. The snakemake
-library provides on all three fronts. It makes workflows easy to use and clear to reproduce. 
+library provides on all three fronts. It makes workflows easy to use and clear to reproduce which it is why it was
+chosen to re-create this Galaxy-based pipeline with.
 
+The pipeline as it was made here consists of three parts:
+1. Preprocessing, done by trimming with cutdapt, and quality control by fastqc and multiqc
+2. Alignment and counting, done by metaphlan.
+3. Visualisations, done by krona and graphlan
+
+You'll find the final visualisations by going to the result directory and finding the map for krona and graphlan.
+Here, graphlan is a simple .pdf file and krona is a .html which you can view by running it in your browser of choice.
 
 ### Project structure
 
