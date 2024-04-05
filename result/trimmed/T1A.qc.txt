@@ -1,7 +1,7 @@
 This is cutadapt 4.6 with Python 3.10.14
 Command line parameters: --cores 1 -m 150 -q 20 -o result/trimmed/T1A_forward.fastq -p result/trimmed/T1A_reverse.fastq data/T1A_forward.fastq data/T1A_reverse.fastq
 Processing paired-end reads on 1 core ...
-Finished in 9.261 s (35.543 µs/read; 1.69 M reads/minute).
+Finished in 1.414 s (5.427 µs/read; 11.06 M reads/minute).
 
 === Summary ===
 
