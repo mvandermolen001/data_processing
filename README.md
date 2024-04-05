@@ -37,9 +37,9 @@ The file follows the following structure:
 ├───README.md
 ├───Snakefile
 ```
-Here, the results of each tool gets put into its own designated directory, along with a log for each tool.
+The results of each tool gets put into its own designated directory, along with a log for each tool.
 What will be the main interest here is the data map, where you put the data you want to process inside. In the config directory
-you'll find the main config.yaml file where you put in your own configurations.
+you'll find the main config.yaml file where you put in your own configurations, this is explained further in the [usage](#-Usage) section.
 
 ## Requirements
 Before you run this pipeline, make sure you have the following installed as conda environments.
@@ -48,7 +48,7 @@ Before you run this pipeline, make sure you have the following installed as cond
 - [Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html) [version 8.9.0]
 - [MetaPhlan](https://huttenhower.sph.harvard.edu/metaphlan/) [version 4.1.0]
 
-Be warned ahead though, MetaPhlan has databases provided which are quite big. It is best you store these
+Be warned ahead of time though, MetaPhlan has databases provided which are quite big. It is best you store these
 on a remote system rather than on your personal device. Another quick heads-up that you should make sure metaphlan is 
 installed under the environment name "mpa".
 
